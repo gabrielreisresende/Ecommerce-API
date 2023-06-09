@@ -33,9 +33,15 @@ fetch('https://fakestoreapi.com/products')
 
                 const img = document.createElement('img');
                 img.src = product.image;
-
+                img.addEventListener('click', () => {
+                    window.location.href = `detalhes.html?id=${product.id}`;
+                  });
+                
                 const title = document.createElement('h4');
                 title.textContent = product.title;
+                title.addEventListener('click', () => {
+                    window.location.href = `detalhes.html?id=${product.id}`;
+                });
 
                 const price = document.createElement('p');
                 price.textContent = `R$: ${product.price}`;
@@ -73,3 +79,6 @@ fetch('https://fakestoreapi.com/products')
         // Renderizar todos os produtos inicialmente
         renderProducts(products);
     });
+
+
+
